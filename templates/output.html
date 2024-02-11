@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programs and Job Postings</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            color: #eee;
+            margin: 0;
+            padding: 0;
+            background-color: #222;
+            background-image: url('{{ url_for("static", filename="images/background-image.jpg") }}');
+        }
+
+        header {
+            background-color: lightslategray;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: lightslategray;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            color: #fff;
+            font-weight: bold;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .program-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .program-item {
+            margin-bottom: 20px;
+            background-color: lightslategray;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .program-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .program-description {
+            margin-bottom: 10px;
+            color: #ddd;
+            line-height: 1.4;
+        }
+
+        .job-postings {
+            margin-top: 20px;
+        }
+
+        .job-posting-item {
+            margin-bottom: 10px;
+        }
+
+        .job-posting-link {
+            color: #6c757d;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .links-header {
+            font-family: 'Times New Roman', serif;
+            font-size: 1.8em;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Empowerment Programs and Job Postings</h1>
+    </header>
+    <main>
+        <div>
+            {% for line in generated_text.split('\n') %}
+                {% set last_full_stop = line.rfind('.') %}
+                {% if last_full_stop != -1 %}
+                    <p>{{ line[:last_full_stop+1] }}</p>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <div class="links-header">Links</div>
+        <ul>
+            {% for item in bigLinks %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    </main>
+</body>
+
+</html>

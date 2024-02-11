@@ -1,0 +1,313 @@
+<header>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Abel');
+
+body, html {
+  color: #fff;
+  font-family: 'Times New Roman', serif;
+  margin: 0;
+  padding: 0;
+  background-color: lightgrey;
+  
+}
+
+body {
+  font-size: 1.2em;
+  background: white, center no-repeat fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -ms-background-size: cover;
+  background-size: cover;
+  background-image: url('{{ url_for("static", filename="images/background-image.jpg") }}');
+  
+}
+
+.text-box {
+  background-color: lightslategray;
+  border-radius: 20px;
+  margin: 2em auto;
+  padding: 20px;
+  width: 90%;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 2.8em;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 2px;
+  word-spacing: 5px;
+  line-height: 1em;
+  font-weight: bold;
+}
+
+p {
+  display: block;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: 1.2em;
+  line-height: 1.2em;
+}
+
+hr {
+  width: 70%;
+  margin: 10px auto;
+}
+
+.container {
+  background-color: lightslategrey;
+  border-radius: 20px;
+  margin: auto;
+  width: 90%;
+  padding: 1em;
+  
+}
+
+#survey-form {
+  margin: 0 auto;
+  width: 80%;
+  padding: 10px;
+}
+
+.labels {
+  display: inline-block;
+  text-align: right;
+  width: 40%;
+  vertical-align: top;
+  margin-top: 20px;
+}
+
+.input-tab {
+  display: inline-block;
+  text-align: left;
+  width: 50%;
+  margin-left: 10px;
+}
+
+.input-field {
+  display: inline-block;
+  width: 100%;
+  padding: 5px;
+  margin: 18px 0 0 10px;
+  border: 1px solid #e67e22;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+::-webkit-input-placeholder {
+   font-style: italic;
+  font-weight: 300;
+}
+
+input {
+  margin: 7px;
+}
+
+#dropdown {
+  width: 100%;
+  padding: 5px;
+  margin: 20px 0 10px 10px;  
+  border: 1px solid #e67e22;
+  border-radius: 3px;
+  font-family: inherit;
+  font-size: 15px;
+}
+.btn {
+  width: 100%;
+  text-align: center;
+  margin: 20px;
+}
+
+button {
+  background-color: dodgerblue;
+  border-radius: 4px;
+  color: white;
+  font-size: 1em;
+  font-weight: bold;
+  font-family: inherit;
+  padding: 10px 15px;
+  border: 1px solid;
+}
+
+button:hover {
+  background-color: #bf6516;
+}
+
+footer {
+  text-align: center;
+  font-size: 17px;
+  margin: 20px;
+}
+
+footer a {
+  color: #f39c12;
+  position: relative;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer a:hover {
+  color: #f1c40f;
+}
+
+footer p {
+  margin: 0;
+  font-size: 17px;
+}
+
+@media only screen and (max-width: 768px) {
+  body{
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(https://wallpapercave.com/wp/Fdh76FQ.jpg) center no-repeat fixed;
+  background-size: cover;
+}
+  
+  h1 {
+    font-size: 2em;
+  }
+  
+  .labels {
+    width: 100%;
+    text-align: left;
+  }
+  .input-tab {
+    width: 100%;
+    float: left;
+    margin-left: -10px;
+  }
+  .input-field {
+    width: 100%;
+  }
+  select {
+    width: 100%;
+  }
+  .btn {
+    width: 100%;
+    margin: auto;
+  }
+}
+
+
+
+    </style>
+    
+    <div class="text-box">
+      <h1 id="title">WELCOME TO EQHire!</h1><hr>
+        <p id="description">Tell us about your job criteria</p>
+    </div>
+  </header>
+      <div class="container">
+        <form id="survey-form" method="POST">
+  
+           <div class="labels">
+            <label id="name-label" for="name">Full Name</label></div>
+          <div class="input-tab">
+            <input class="input-field" type="text" id="name" name="name" placeholder="Enter your name" required autofocus></div>
+  
+           <div class="labels">
+            <label id="email-label" for="email">Email</label></div>
+          <div class="input-tab">
+            <input class="input-field" type="email" id="email" name="email" placeholder="email@email.com" required></div>
+          
+           <div class="labels">
+            <label id="number-label" for="number">Age</label></div>
+          <div class="input-tab">
+            <input class="input-field" type="number" id="number" name="number" min="1" max="120" placeholder="30" required></div>
+  
+            
+           <div class="labels">
+            <label for="dropdown">Occupation</label></div>
+          <div class="input-tab">
+            <select id="dropdown" name="job_drop">
+              <option disabled value selected>Select an option</option>
+              <option value="software_engineer">Software Engineer</option>
+              <option value="data_scientist">Data Scientist</option>
+              <option value="graphic_designer">Graphic Designer</option>
+              <option value="marketing_manager">Marketing Manager</option>
+              <option value="sales_representative">Sales Representative</option>
+              <option value="customer_support_specialist">Customer Support Specialist</option>
+              <option value="financial_analyst">Financial Analyst</option>
+              <option value="human_resources_manager">Human Resources Manager</option>
+              <option value="content_writer">Content Writer</option>
+              <option value="project_manager">Project Manager</option>
+              <option value="account_executive">Account Executive</option>
+              <option value="operations_manager">Operations Manager</option>
+              <option value="front_end_developer">Front-end Developer</option>
+              <option value="back_end_developer">Back-end Developer</option>
+              <option value="network_engineer">Network Engineer</option>
+              <option value="system_administrator">System Administrator</option>
+              <option value="marketing_coordinator">Marketing Coordinator</option>
+              <option value="UX_UI_designer">UX/UI Designer</option>
+              <option value="business_analyst">Business Analyst</option>
+              <option value="healthcare_nurse">Healthcare Nurse</option>
+              <option value="mechanical_engineer">Mechanical Engineer</option>
+              <option value="electrical_engineer">Electrical Engineer</option>
+              <option value="logistics_coordinator">Logistics Coordinator</option>
+              <option value="research_scientist">Research Scientist</option>
+              <option value="accountant">Accountant</option>
+              <option value="customer_service_representative">Customer Service Representative</option>
+              <option value="social_media_manager">Social Media Manager</option>
+              <option value="digital_marketing_specialist">Digital Marketing Specialist</option>
+              <option value="software_architect">Software Architect</option>
+              <option value="data_analyst">Data Analyst</option>
+              <option value="UX_UI_architect">UX/UI Architect</option>
+              <option value="financial_planner">Financial Planner</option>
+              <option value="IT_consultant">IT Consultant</option>
+              <option value="sales_manager">Sales Manager</option>
+              <option value="web_developer">Web Developer</option>
+              <option value="mobile_app_developer">Mobile App Developer</option>
+              <option value="project_coordinator">Project Coordinator</option>
+              <option value="customer_success_manager">Customer Success Manager</option>
+              <option value="content_strategist">Content Strategist</option>
+              <option value="quality_assurance_engineer">Quality Assurance Engineer</option>
+              <option value="product_manager">Product Manager</option>
+              <option value="cybersecurity_analyst">Cybersecurity Analyst</option>
+              
+              
+            </select>
+            </div>
+          
+          <div class="labels">
+            <label>Gender</label></div>
+          <div class="input-tab">
+              <input type="radio" name="radio-button" value="love">Male<br>
+              <input type="radio" name="radio-button" value="like">Female<br>
+              <input type="radio" name="radio-button" value="ok">Non-Binary<br>
+              <input type="radio" name="radio-button" value="nah">Other<br>
+          </div>
+          
+          <div class="labels">
+            <label for="dropdown">Identification</label></div>
+          <div class="input-tab">
+            <select name="identification_drop" id="dropdown">
+              <option disabled value selected>Select an option</option>
+              <option value="racial_minority">Racial Minorities</option>
+              <option value="women">Women</option>
+                <option value="disabled">Disabled</option>
+                <option value="senior_workers">Senior Workers</option>
+                <option value="LGBTQ+">LGBTQ+</option>
+                <option value="Immigrant">Immigrant</option>
+
+
+            </select>
+          </div>
+          
+          
+          
+          <div class="labels">
+            <label for="comments">Tell us more about some of the problem(s) you face.</label></div>
+          <div class="input-tab">
+            <textarea class="input-field" id="comments" name="comments" rows="10" cols="40" placeholder="Your comments..."></textarea></div>
+          
+          <div class="btn">
+            <button id="submit" type="submit">Submit</button>
+          </div>
+          
+        </form>
+      </div>
+  
+ 
+  
