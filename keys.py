@@ -1,2 +1,0 @@
-gpt_key = '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'
-serp_key = 'c1c52d0669b8527cd13124496f1ceaf7063267f4a2405c0e9760bb3f744b34c2'
